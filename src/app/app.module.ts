@@ -9,7 +9,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { StarWarsPlanetsComponent } from './components/star-wars-planets/star-wars-planets.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PaginationPipe } from './pipes/pagination.pipe'
 
 @NgModule({
   declarations: [
@@ -17,7 +16,7 @@ import { PaginationPipe } from './pipes/pagination.pipe'
     LoginComponent,
     RegistrationComponent,
     StarWarsPlanetsComponent,
-    PaginationPipe
+
   ],
   imports: [
     BrowserModule,

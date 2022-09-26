@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: "", pathMatch: 'full', redirectTo: '/login' },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegistrationComponent },
-  { path: "planets/:token", component: StarWarsPlanetsComponent },
+  { path: "planets", component: StarWarsPlanetsComponent },
   { path: "**", redirectTo: '/login' }
 ];
 

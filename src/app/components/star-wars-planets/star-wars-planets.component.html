@@ -1,18 +1,30 @@
 <h2>Star Wars Planets</h2>
-<div class="d-flex w-50 mt-3 mb-3">
-    <input class="form-control me-3" type="text" value="" placeholder="Planet name">
-    <input class="btn btn-secondary" type="submit">
+<hr>
+<div class="d-flex justify-content-end mt-5 mb-5">
+    <form novalidate #searchForm="ngForm" (ngSubmit)="getSearchForm(searchForm)" class="d-flex">
+        <input name="search" class="form-control me-3" type="text" value="" placeholder="Planet name" ngModel>
+        <input class="btn btn-secondary" type="submit">
+    </form>
 </div>
-<div class="card p-4">
-    <h3>Nombre Planeta</h3>
-    <figure>
-        <img src="" alt="">
-    </figure>
-    <div>
-        <p>Information</p>
-        <p>Population:</p>
-        <p>Diameter:</p>
-        <p>Ground:</p>
-        <p>Movie:</p>
+<div class="row g-3">
+    <div class="col-12 col-md-6 col-xl-3" *ngFor="let planet of myPlanets">
+        <div class="planet p-4 rounded-3">
+            <h3>{{planet.name}}</h3>
+            <figure>
+                <img src="" alt="">
+            </figure>
+            <div>
+                <p>Information</p>
+                <hr>
+                <p>Population: {{planet.population}}</p>
+                <p>Diameter: {{planet.diameter}} km</p>
+                <p>Ground: {{planet.terrain | titlecase}}</p>
+                <!-- <p>Movie: {{planet.films}}</p> -->
+            </div>
+        </div>
     </div>
+</div>
+<div class="mt-4 d-flex justify-content-around">
+    <button *ngIf="pagePrev" class="btn btn-secondary" (click)="prevPage()">Prev</button>
+    <button *ngIf="pageNext" class="btn btn-secondary" (click)="nextPage()">Next</button>
 </div>

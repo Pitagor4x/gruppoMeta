@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-star-wars-planets',
@@ -7,11 +8,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StarWarsPlanetsComponent implements OnInit {
 
-  baseUrl: string = 'https://swapi.dev/api/planets/'
+  myPlanets: [] | any
+  pagePrev: any
+  pageNext: any
+  searchName: string = ""
 
-  constructor() { }
+  constructor(
+    private apiService: ApiService
+  ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.myPlanets = await this.apiService.getAllPlanets()
+    this.pagePrev = this.myPlanets.previous
+    this.pageNext = this.myPlanets.next
+    this.myPlanets = this.myPlanets.results
   }
 
+  async getSearchForm(searchForm: any) {
+    this.searchName = searchForm.value.search
+    this.myPlanets = await this.apiService.getPlanetsByName(this.searchName)
+    this.pagePrev = this.myPlanets.previous
+    this.pageNext = this.myPlanets.next
+    this.myPlanets = this.myPlanets.results
+  }
+
+  async prevPage() {
+    this.myPlanets = await this.apiService.getPages(this.pagePrev)
+    this.pagePrev = this.myPlanets.previous
+    this.pageNext = this.myPlanets.next
+    this.myPlanets = this.myPlanets.results
+  }
+
+  async nextPage() {
+    this.myPlanets = await this.apiService.getPages(this.pageNext)
+    this.pagePrev = this.myPlanets.previous
+    this.pageNext = this.myPlanets.next
+    this.myPlanets = this.myPlanets.results
+  }
 }
