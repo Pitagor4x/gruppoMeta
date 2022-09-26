@@ -1,15 +1,18 @@
-<h2>LOGIN</h2>
-<button class="btn btn-secondary mt-3 mb-3" routerLink="/register">Go to register</button>
+<h2>Login</h2>
+
 <div>
-    <form novalidate #loginForm="ngForm" (ngSubmit)="getDataForm(loginForm)">
+    <form [formGroup]="loginForm" (ngSubmit)="getLoginForm()">
         <div>
             <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" ngModel name="username">
+            <input type="text" class="form-control" id="username" formControlName="username">
         </div>
         <div>
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" ngModel name="password">
+            <input type="password" class="form-control" id="password" formControlName="password">
         </div>
-        <input class="btn btn-secondary mt-3" type="submit" value="Login">
+        <div class="mt-3 d-flex justify-content-around">
+            <button class="btn btn-secondary" routerLink="/register">Go to register</button>
+            <input class="btn btn-secondary" type="submit" value="Login">
+        </div>
     </form>
 </div>
