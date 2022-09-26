@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms'
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -15,10 +15,18 @@ export class RegistrationComponent implements OnInit {
     private usersServices: UsersService
   ) {
     this.registerForm = new FormGroup({
-      firstName: new FormControl('', []),
-      lastName: new FormControl('', []),
-      username: new FormControl('', []),
-      password: new FormControl('', []),
+      firstName: new FormControl('', [
+        Validators.required
+      ]),
+      lastName: new FormControl('', [
+        Validators.required
+      ]),
+      username: new FormControl('', [
+        Validators.required
+      ]),
+      password: new FormControl('', [
+        Validators.required
+      ]),
     }, [])
   }
 
@@ -26,6 +34,7 @@ export class RegistrationComponent implements OnInit {
 
   getDataForm() {
     console.log(this.registerForm.value)
+    console.log(this.usersServices.checkUsername('test'))
   }
 
 }
