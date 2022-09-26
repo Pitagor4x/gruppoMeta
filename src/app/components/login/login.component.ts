@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user.interface';
 import { UsersService } from 'src/app/services/users.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,11 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.value.username.toLowerCase() === 'luke' && this.loginForm.value.password === 'skywalker') {
       this.router.navigate(['/planets'])
     } else {
-      alert('Your username or password are incorrect')
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Your username or password are wrong!',
+      })
     }
   }
 
