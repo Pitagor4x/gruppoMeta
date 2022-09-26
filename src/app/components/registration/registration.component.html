@@ -1,0 +1,23 @@
+<h2>REGISTER</h2>
+<button class="btn btn-secondary mt-3 mb-3" routerLink="/login">Return to login</button>
+<div>
+    <form [formGroup]="registerForm" (ngSubmit)="getDataForm()">
+        <div>
+            <label for="firstName" class="form-label">First name</label>
+            <input class="form-control" type="text" id="firstName" formControlName="firstName">
+        </div>
+        <div>
+            <label for="lastName" class="form-label">Last name</label>
+            <input class="form-control" type="text" id="lastName" formControlName="lastName">
+        </div>
+        <div>
+            <label for="username" class="form-label">Username</label>
+            <input class="form-control" type="text" id="username" formControlName="username">
+        </div>
+        <div>
+            <label for="password" class="form-label">Password</label>
+            <input class="form-control" type="text" id="password" formControlName="password">
+        </div>
+        <input type="submit" value="Register" class="btn btn-secondary mt-3">
+    </form>
+</div>

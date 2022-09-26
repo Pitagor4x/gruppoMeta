@@ -1,0 +1,15 @@
+<h2>LOGIN</h2>
+<button class="btn btn-secondary mt-3 mb-3" routerLink="/register">Go to register</button>
+<div>
+    <form novalidate #loginForm="ngForm" (ngSubmit)="getDataForm(loginForm)">
+        <div>
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" ngModel name="username">
+        </div>
+        <div>
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" ngModel name="password">
+        </div>
+        <input class="btn btn-secondary mt-3" type="submit" value="Login">
+    </form>
+</div>
