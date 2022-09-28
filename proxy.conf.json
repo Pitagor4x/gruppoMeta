@@ -1,0 +1,7 @@
+{
+    "/test-js/*": {
+        "target": "http://lab.gruppometa.it",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

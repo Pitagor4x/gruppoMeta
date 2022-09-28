@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class StarWarsPlanetsComponent implements OnInit {
 
   myPlanets: [] | any
+  planetFilms: [] | any
   pagePrev: any
   pageNext: any
   searchName: string = ""
@@ -19,9 +20,16 @@ export class StarWarsPlanetsComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.myPlanets = await this.apiService.getAllPlanets()
-    this.pagePrev = this.myPlanets.previous
-    this.pageNext = this.myPlanets.next
-    this.myPlanets = this.myPlanets.results
+    this.pagePrev = this.myPlanets?.previous
+    this.pageNext = this.myPlanets?.next
+    this.myPlanets = this.myPlanets?.results
+    /* this.planetFilms = await this.apiService.getFilms((film: any) => {
+      film.forEach(element => {
+
+      });
+    }) */
+
+
   }
 
   async getSearchForm(searchForm: any) {

@@ -2,3 +2,8 @@
     color: tomato;
     font-size: 12px;
 }
+.box{
+    background-color: gainsboro;
+    width: 70%;
+    border: 1px solid grey;
+}

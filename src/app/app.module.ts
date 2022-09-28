@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { StarWarsPlanetsComponent } from './components/star-wars-planets/star-wars-planets.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FilmsPipe } from './pipe/films.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegistrationComponent,
     StarWarsPlanetsComponent,
+    FilmsPipe,
 
   ],
   imports: [
