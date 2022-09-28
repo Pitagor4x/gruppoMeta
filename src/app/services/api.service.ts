@@ -17,8 +17,11 @@ export class ApiService {
     return lastValueFrom(this.httpClient.get(this.baseUrl))
   }
 
-  getPlanetsByName(name: string = 'tatooine'): Promise<any> {
+  getFilms(url: any): Promise<any> {
+    return lastValueFrom(this.httpClient.get(url))
+  }
 
+  getPlanetsByName(name: string): Promise<any> {
     return lastValueFrom(this.httpClient.get<any>(this.baseUrl + '?search=' + name))
   }
 

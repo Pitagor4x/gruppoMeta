@@ -1,0 +1,14 @@
+####
+POST http://lab.gruppometa.it/test-js/check-username/
+Content-Type: application/json
+
+{
+    "username":"test"
+}
+
+
+
+####
+POST http://lab.gruppometa.it/test-js/registration/
+
+

@@ -3,7 +3,7 @@
 <div class="d-flex justify-content-end mt-5 mb-5">
     <form novalidate #searchForm="ngForm" (ngSubmit)="getSearchForm(searchForm)" class="d-flex">
         <input name="search" class="form-control me-3" type="text" value="" placeholder="Planet name" ngModel>
-        <input class="btn btn-secondary" type="submit">
+        <input class="btn btn-secondary" type="submit" value="Search">
     </form>
 </div>
 <div class="row g-3">
@@ -13,13 +13,14 @@
             <figure>
                 <img src="" alt="">
             </figure>
-            <div>
-                <p>Information</p>
-                <hr>
+            <p class="infoTitle">Information</p>
+            <hr>
+            <div class="information rounded-3 p-2">
                 <p>Population: {{planet.population}}</p>
                 <p>Diameter: {{planet.diameter}} km</p>
                 <p>Ground: {{planet.terrain | titlecase}}</p>
-                <!-- <p>Movie: {{planet.films}}</p> -->
+                <p>Movies:</p>
+                <p *ngFor="let film of planet.films">- {{film | films | async}}</p>
             </div>
         </div>
     </div>

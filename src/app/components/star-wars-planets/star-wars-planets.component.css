@@ -1,3 +1,18 @@
 .planet{
-    border: 1px solid black;
+    border: 1px solid grey;
+    background-color: gainsboro;
+}
+.information{
+   /*  border: 1px solid black; */
+    background-color: whitesmoke;
+}
+
+h3{
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.infoTitle{
+    font-size: 1.1em;
+    font-weight: bold;
 }
